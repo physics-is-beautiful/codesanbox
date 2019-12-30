@@ -70,6 +70,26 @@ let getState;
 let getSignal;
 
 async function boot(overmind) {
+
+  // const rootEl = document.getElementById('root');
+  //
+  //  render(
+  //       <ApolloProvider client={client}>
+  //         <ActualOvermindProvider value={overmind}>
+  //           <OvermindProvider value={overmind}>
+  //             <HooksProvider client={client}>
+  //               <ThemeProvider theme={theme}>
+  //                 <Router history={history}>
+  //                   <App />
+  //                 </Router>
+  //               </ThemeProvider>
+  //             </HooksProvider>
+  //           </OvermindProvider>
+  //         </ActualOvermindProvider>
+  //       </ApolloProvider>,
+  //       rootEl
+  //     );
+
   requirePolyfills().then(() => {
     if (isSafari) {
       import('subworkers');
@@ -176,6 +196,7 @@ async function initialize() {
           fs: 'CodeSandboxEditorFS',
           options: {
             api: {
+              // getState: () => {console.trace();}
               getState: () => ({
                 modulesByPath: getState().editor.currentSandbox
                   ? getState().editor.modulesByPath
@@ -250,6 +271,8 @@ async function initialize() {
               'worker-loader?publicPath=/&name=ext-host-worker.[hash:8].worker.js!./vscode/extensionHostWorker/bootstrappers/ext-host'
             ).then(ExtHostWorkerLoader => {
               childProcess.addDefaultForkHandler(ExtHostWorkerLoader.default);
+
+              console.log('bootstrappers/ext-host loaded');
               // child_process.preloadWorker('/vs/bootstrap-fork');
             });
 

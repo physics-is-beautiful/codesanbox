@@ -1,6 +1,7 @@
 /* eslint-disable import/default */
 // @ts-ignore
-import PugWorker from 'worker-loader?publicPath=/&name=pug-transpiler.[hash:8].worker.js!./pug-worker';
+// import PugWorker from 'worker-loader?publicPath=/&name=pug-transpiler.[hash:8].worker.js!./pug-worker';
+import PugWorker from 'worker-loader?publicPath=/static/courses/eval/&name=pug-transpiler.[hash:8].worker.js!./pug-worker';
 /* eslint-enable import/default */
 
 import WorkerTranspiler from '../worker-transpiler';

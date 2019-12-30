@@ -185,6 +185,9 @@ export default class CodeSandboxEditorFS extends SynchronousFileSystem
 
   public statSync(p: string, isLstate: boolean): Stats {
     const modules = this.api.getState().modulesByPath;
+    
+    // console.log(modules);
+    
     const moduleInfo = modules[p];
 
     if (!moduleInfo) {

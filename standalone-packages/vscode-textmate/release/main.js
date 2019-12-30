@@ -3618,7 +3618,7 @@ var Registry = /** @class */ (function () {
         if (tokenTypes === void 0) { tokenTypes = null; }
         return this._syncRegistry.grammarForScopeName(scopeName, initialLanguage, embeddedLanguages, tokenTypes);
     };
-    return Registry;
+   return Registry;
 }());
 exports.Registry = Registry;
 exports.INITIAL = grammar_1.StackElement.NULL;

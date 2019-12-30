@@ -64,12 +64,16 @@ export const npmDependencyRemoved: AsyncAction<{
   });
 });
 
+import * as fs from 'fs';
+
 export const sandboxChanged: AsyncAction<{ id: string }> = withLoadApp<{
   id: string;
 }>(async ({ state, actions, effects }, { id }) => {
   state.editor.error = null;
 
   let newId = id;
+  
+  // console.log('id:'+newId);
 
   newId = actions.editor.internal.ensureSandboxId(newId);
 
@@ -104,6 +108,7 @@ export const sandboxChanged: AsyncAction<{ id: string }> = withLoadApp<{
     } else {
       actions.internal.setCurrentSandbox(sandbox);
     }
+
   } catch (error) {
     state.editor.notFound = true;
     state.editor.error = error.message;

@@ -103,7 +103,11 @@ class BasePreview extends React.Component<Props, State> {
         this.setState({ showScreenshot: false });
       }, 100);
     }
+
     this.listener = listen(this.handleMessage);
+
+    // console.log('this.listener');
+    // console.log(this.listener);
 
     if (props.delay) {
       this.executeCode = debounce(this.executeCode, 800);
@@ -267,6 +271,10 @@ class BasePreview extends React.Component<Props, State> {
   };
 
   handleMessage = (data: any, source: any) => {
+
+    // console.log('handleMessage');
+    // console.log(data);
+
     if (data && data.codesandbox) {
       if (data.type === 'initialized' && source) {
         registerFrame(source, this.currentUrl());
@@ -373,13 +381,16 @@ class BasePreview extends React.Component<Props, State> {
     // the only reason we do this is because executeCodeImmediately can be called
     // directly as well
     // @ts-ignore
+
+    // console.trace();
+
     this.executeCode.cancel();
     const { settings } = this.props;
     const { sandbox } = this.props;
 
     if (settings.clearConsoleEnabled && !this.serverPreview) {
       // @ts-ignore Chrome behaviour
-      console.clear('__internal__'); // eslint-disable-line no-console
+      // console.clear('__internal__'); // eslint-disable-line no-console
       dispatch({ type: 'clear-console' });
     }
 
@@ -394,6 +405,7 @@ class BasePreview extends React.Component<Props, State> {
           command: `history.pushState({}, null, '/')`,
         });
       }
+      // console.trace();
 
       const modulesToSend = this.getModulesToSend();
       if (!this.serverPreview) {

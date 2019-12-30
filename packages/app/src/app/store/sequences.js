@@ -506,7 +506,6 @@ export const signInCli = [
 ];
 
 export const loadSandbox = factories.withLoadApp([
-  set(state`editor.error`, null),
 
   actions.setIdFromAlias,
 

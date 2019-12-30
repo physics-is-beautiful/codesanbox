@@ -25,6 +25,7 @@ class PreviewComponent extends Component<Props, State> {
   };
 
   onPreviewInitialized = preview => {
+
     const disposeHandleProjectViewChange = this.props.reaction(
       ({ editor }) => editor.isInProjectView,
       this.handleProjectView.bind(this, preview)

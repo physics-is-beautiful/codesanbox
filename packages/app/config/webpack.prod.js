@@ -14,6 +14,7 @@ const VERSION = require('@codesandbox/common/lib/version').default;
 // const childProcess = require('child_process');
 const commonConfig = require('./webpack.common');
 
+// const publicPath = '/static/material/';
 const publicPath = '/';
 // const isMaster =
 //   childProcess

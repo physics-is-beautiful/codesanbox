@@ -49,6 +49,9 @@ export async function initializeBrowserFS({
 } = {}) {
   return new Promise(resolve => {
     const config = { ...BROWSER_FS_CONFIG };
+    
+  console.log(BROWSER_FS_CONFIG);
+    
     let modulesByPath = {};
 
     if (syncSandbox) {

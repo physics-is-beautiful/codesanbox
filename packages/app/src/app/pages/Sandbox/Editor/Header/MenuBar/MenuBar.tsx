@@ -7,7 +7,11 @@ export const MenuBar = () => {
 
   useEffect(() => {
     // Get the menu bar part from vscode and mount it
+
     vscode.getMenubarPart().then(part => {
+      // console.log('part');
+      // console.log(part);
+      // console.log(menuBarEl.current);
       part.create(menuBarEl.current);
     });
 

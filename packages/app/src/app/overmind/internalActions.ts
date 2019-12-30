@@ -138,17 +138,32 @@ export const closeModals: Action<boolean> = ({ state, effects }, isKeyDown) => {
   effects.keybindingManager.start();
 };
 
+import * as fs from 'fs';
+
 export const setCurrentSandbox: AsyncAction<Sandbox> = async (
   { state, effects, actions },
   sandbox
 ) => {
+
   const oldSandboxId =
     state.editor.currentId === sandbox.id ? null : state.editor.currentId;
 
   state.editor.sandboxes[sandbox.id] = sandbox;
+  
+  // console.log(sandbox);
+
+  // fs.readdir('/sandbox/', function(err, items) {
+  //   console.log(items);
+  // })
+
   state.editor.currentId = sandbox.id;
 
+  // fs.readdir('/sandbox/', function(err, items) {
+  //   console.log(items);
+  // })
+
   let { currentModuleShortid } = state.editor;
+
   const parsedConfigs = parseConfigurations(sandbox);
   const main = mainModule(sandbox, parsedConfigs);
 
@@ -239,26 +254,26 @@ export const setCurrentSandbox: AsyncAction<Sandbox> = async (
 
   state.workspace.openedWorkspaceItem = defaultItem.id;
 
-  await effects.executor.initializeExecutor(sandbox);
-
-  [
-    'connect',
-    'disconnect',
-    'sandbox:status',
-    'sandbox:start',
-    'sandbox:stop',
-    'sandbox:error',
-    'sandbox:log',
-    'sandbox:hibernate',
-    'sandbox:update',
-    'sandbox:port',
-    'shell:out',
-    'shell:exit',
-  ].forEach(message => {
-    effects.executor.listen(message, actions.server.onSSEMessage);
-  });
-
-  effects.executor.setupExecutor();
+  // await effects.executor.initializeExecutor(sandbox);
+  //
+  // [
+  //   'connect',
+  //   'disconnect',
+  //   'sandbox:status',
+  //   'sandbox:start',
+  //   'sandbox:stop',
+  //   'sandbox:error',
+  //   'sandbox:log',
+  //   'sandbox:hibernate',
+  //   'sandbox:update',
+  //   'sandbox:port',
+  //   'shell:out',
+  //   'shell:exit',
+  // ].forEach(message => {
+  //   effects.executor.listen(message, actions.server.onSSEMessage);
+  // });
+  //
+  // effects.executor.setupExecutor();
 
   /*
     There seems to be a race condition here? Verify if this still happens with Overmind

@@ -32,7 +32,7 @@ export const state: State = {
     fontSize: 14,
     fontFamily: 'Dank Mono',
     lineHeight: 1.5,
-    clearConsoleEnabled: true,
+    clearConsoleEnabled: false,
     autoDownloadTypes: true,
     codeMirror: isIOS,
     keybindings: [],

@@ -33,6 +33,8 @@ import MonacoEditorComponent, { EditorAPI } from './MonacoReactComponent';
 import { Container, GlobalStyles } from './elements';
 import getSettings from '../Monaco/settings';
 
+import * as fs from 'fs';
+
 import { Props, Editor } from '../types'; // eslint-disable-line
 import getMode from '../Monaco/mode';
 
@@ -340,6 +342,9 @@ export class VSCode extends React.Component<Props> implements Editor {
         }
       }
     );
+    
+    // console.log(this.modelListeners);
+    
   };
 
   disposeContentListeners = () => {
@@ -387,6 +392,7 @@ export class VSCode extends React.Component<Props> implements Editor {
     };
 
     this.listenForFileChanges();
+
     this.activeEditorListener = editor.editorService.onDidActiveEditorChange(
       () => {
         if (this.modelSelectionListener) {
@@ -1019,6 +1025,14 @@ export class VSCode extends React.Component<Props> implements Editor {
       );
 
       if (path && this.getCurrentModelPath() !== path) {
+        //console.log(path);
+        // fs.readdir('/sandbox/', function(err, items) {
+        //   console.log(items);
+        // })
+        // fs.readFile('/sandbox/'+path, function(err, contents) {
+        //   console.log(contents);
+        //   console.log(err);
+        // });
         this.editor.openFile(path);
       }
     }

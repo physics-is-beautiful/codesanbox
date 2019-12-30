@@ -90,11 +90,6 @@
     "typescript": "3.6.3",
     "username": "^5.1.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "cross-env LINT=1 eslint --fix",
@@ -103,7 +98,7 @@
     ]
   },
   "engines": {
-    "node": "^10.0.0"
+    "node": "^12.0.0"
   },
   "collective": {
     "type": "opencollective",

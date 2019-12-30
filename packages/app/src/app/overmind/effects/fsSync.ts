@@ -145,6 +145,7 @@ function sendFiles(modulesByPath) {
   }
 }
 
+
 export default {
   initialize(options: {
     onModulesByPathChange: (modulesByPath: any) => void;

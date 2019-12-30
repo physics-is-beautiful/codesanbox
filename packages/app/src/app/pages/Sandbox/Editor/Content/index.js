@@ -352,6 +352,8 @@ class EditorPreview extends React.Component {
 
   detectStructureChange = ({ editor }) => {
     const sandbox = editor.currentSandbox;
+    
+    // console.log(sandbox);
 
     return String(
       sandbox.modules
@@ -392,6 +394,8 @@ class EditorPreview extends React.Component {
     const sandbox = store.editor.currentSandbox;
     const { preferences } = store;
     const { currentTab } = store.editor;
+    
+    // console.log(currentTab);
 
     const windowVisible = store.editor.previewWindowVisible;
 

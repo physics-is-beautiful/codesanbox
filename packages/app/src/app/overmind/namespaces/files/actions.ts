@@ -354,6 +354,7 @@ export const moduleCreated: AsyncAction<{
     { state, actions, effects },
     { title, directoryShortid, code, isBinary }
   ) => {
+
     const sandbox = state.editor.currentSandbox;
     const optimisticModule = createOptimisticModule({
       id: effects.utils.createOptimisticId(),
@@ -457,6 +458,9 @@ export const syncSandbox: AsyncAction<any[]> = async (
   updates
 ) => {
   const id = state.editor.currentId;
+
+
+  console.log('syncSandbox');
 
   try {
     const newSandbox = await effects.api.getSandbox(id);

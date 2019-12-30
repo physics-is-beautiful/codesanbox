@@ -190,6 +190,7 @@ export function addDevToolsTab({ state, props }) {
     props.tab
   );
 
+
   return {
     code: JSON.stringify({ preview: newDevToolTabs }, null, 2),
     nextPos: position,

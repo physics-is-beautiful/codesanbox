@@ -55,6 +55,7 @@ class MonacoEditor extends React.PureComponent {
 
   initMonaco = () => {
     const context = this.props.context || window;
+
     if (this.containerElement && typeof context.monaco !== 'undefined') {
       // Before initializing monaco editor
       this.editorWillMount(context.monaco);
@@ -150,9 +151,11 @@ class MonacoEditor extends React.PureComponent {
             const editorApi = {
               openFile(path: string) {
                 fontPromise.then(() => {
+
                   codeEditorService.openCodeEditor({
                     resource: context.monaco.Uri.file('/sandbox' + path),
                   });
+
                 });
               },
               getActiveCodeEditor() {

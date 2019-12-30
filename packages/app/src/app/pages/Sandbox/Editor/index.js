@@ -15,6 +15,8 @@ import { Header } from './Header';
 import { Navigation } from './Navigation';
 import getVSCodeTheme from './utils/get-vscode-theme';
 
+// import * as fs from 'fs';
+
 const STATUS_BAR_SIZE = 22;
 
 const StatusBar = styled.div`
@@ -60,8 +62,16 @@ class ContentSplit extends React.Component {
     const { signals, store, match } = this.props;
     const sandbox = store.editor.currentSandbox;
 
+
+    // fs.readdir('/sandbox/', function(err, items) {
+    //       console.log('items editor');
+    //       console.log(items);
+    //     })
+
     // Force MobX to update this component by observing the following value
     this.props.store.preferences.settings.customVSCodeTheme; // eslint-disable-line
+    
+    // console.log(this.props.store);
 
     const vscode = this.props.store.preferences.settings.experimentVSCode;
 

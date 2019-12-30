@@ -54,6 +54,7 @@ class ConsoleComponent extends React.Component<StyledProps> {
   }
 
   handleMessage = data => {
+
     switch (data.type) {
       case 'console': {
         const message = Decode(data.log);

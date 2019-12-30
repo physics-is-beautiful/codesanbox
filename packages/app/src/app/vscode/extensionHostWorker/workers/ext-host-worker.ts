@@ -16,9 +16,12 @@ const ctx: any = self;
 
 self.addEventListener('message', async e => {
   const { data } = e;
+
   if (data.$type === 'worker-manager') {
     if (data.$event === 'init') {
       debug('Initializing BrowserFS');
+      console.log('Initializing BrowserFS start');
+
       await initializeBrowserFS({
         syncSandbox: true,
         syncTypes: true,
@@ -34,7 +37,9 @@ self.addEventListener('message', async e => {
           },
         },
       });
+
       debug('Initialized BrowserFS', data.data.env);
+      console.log('Initialized BrowserFS end', data.data.env);
 
       const process = ctx.BrowserFS.BFSRequire('process');
       process.cwd = () => data.data.cwd || '/sandbox';

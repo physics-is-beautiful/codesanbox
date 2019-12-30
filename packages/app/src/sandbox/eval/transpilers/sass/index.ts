@@ -1,5 +1,6 @@
 // @ts-ignore
-import SassWorker from 'worker-loader?publicPath=/&name=sass-transpiler.[hash:8].worker.js!./worker';
+// import SassWorker from 'worker-loader?publicPath=/&name=sass-transpiler.[hash:8].worker.js!./worker';
+import SassWorker from 'worker-loader?publicPath=/static/courses/eval/&name=sass-transpiler.[hash:8].worker.js!./worker';
 
 import WorkerTranspiler from '../worker-transpiler';
 import { LoaderContext } from '../../transpiled-module';

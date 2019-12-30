@@ -14,6 +14,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 
+import * as fs from 'fs';
+
 import Editor from './Editor';
 
 class SandboxPage extends React.Component {
@@ -45,6 +47,7 @@ class SandboxPage extends React.Component {
   }
 
   fetchSandbox = () => {
+
     const { id } = this.props.match.params;
 
     this.props.signals.editor.sandboxChanged({ id });

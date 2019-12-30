@@ -29,5 +29,5 @@ initializeAll().then(() => {
     '/extensions/node_modules/typescript/lib/tsserver.js'
   );
 
-  require('../workers/ext-host-worker');
+  // require('../workers/ext-host-worker');
 });

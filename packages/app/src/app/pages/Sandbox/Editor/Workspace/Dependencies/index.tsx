@@ -39,6 +39,10 @@ export const Dependencies: FunctionComponent = () => {
   // const devDependencies = parsed.devDependencies || {};
 
   const templateDefinition = getDefinition(sandbox.template);
+
+   // console.log('sandbox');
+   // console.log(sandbox);
+
   const fonts = sandbox.externalResources.filter(resource =>
     resource.includes('fonts.googleapis.com/css')
   );

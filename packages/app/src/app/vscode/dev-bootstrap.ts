@@ -512,6 +512,7 @@ export default function(isVSCode = false, requiredModule?: string[]) {
 
   var RESOLVED_CORE = new Component('editor', 'vs', METADATA.CORE.paths);
   global.RESOLVED_CORE_PATH = RESOLVED_CORE.getResolvedPath();
+
   var RESOLVED_PLUGINS = METADATA.PLUGINS.map(function(plugin) {
     return new Component(
       plugin.name,
@@ -644,6 +645,8 @@ export default function(isVSCode = false, requiredModule?: string[]) {
               }
             );
           } else {
+            // console.log('callback1111');
+            // console.log(callback);
             callback();
           }
         });

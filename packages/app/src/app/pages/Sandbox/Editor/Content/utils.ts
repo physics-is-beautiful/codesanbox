@@ -14,6 +14,7 @@ export function addDevToolsTab(
   newTab: ViewTab,
   position?: DevToolsTabPosition
 ) {
+
   const positionToAdd: DevToolsTabPosition = position || {
     devToolIndex: 0,
     tabPosition: tabs[0].views.length,

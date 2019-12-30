@@ -106,6 +106,9 @@ export const saveCode: AsyncAction<{
   }
 
   try {
+    
+    console.log('updatedModule');
+    
     const updatedModule = await effects.api.saveModuleCode(sandbox.id, module);
 
     module.insertedAt = updatedModule.insertedAt;
@@ -239,6 +242,7 @@ export const setModuleCode: Action<{
   module: Module;
   code: string;
 }> = ({ state, effects }, { module, code }) => {
+
   const { currentId } = state.editor;
   const { currentSandbox } = state.editor;
   const hasChangedModuleId = state.editor.changedModuleShortids.includes(

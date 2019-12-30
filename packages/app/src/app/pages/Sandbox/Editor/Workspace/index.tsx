@@ -44,6 +44,7 @@ const workspaceTabs = {
 
 export const Workspace: FunctionComponent = () => {
   const { state } = useOvermind();
+
   const {
     editor: {
       currentSandbox: { owned },
