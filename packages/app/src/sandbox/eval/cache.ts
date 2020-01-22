@@ -2,15 +2,22 @@
 import localforage from 'localforage';
 import _debug from '@codesandbox/common/lib/utils/debug';
 import Manager from './manager';
-
 import { SCRIPT_VERSION } from '..';
 
 const debug = _debug('cs:compiler:cache');
 
-const host = process.env.CODESANDBOX_HOST;
+// const host = process.env.CODESANDBOX_HOST;
+const host = ''; // the same host for now
 
 const MAX_CACHE_SIZE = 1024 * 1024 * 7;
 let APICacheUsed = false;
+
+function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ))
+    return matches ? decodeURIComponent(matches[1]) : undefined
+}
 
 try {
   localforage.config({
@@ -93,7 +100,8 @@ export async function saveCache(
     );
 
     return window
-      .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+      // .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+    .fetch(`${host}/api/v1/studio/material-problem-type/${sandboxId}/cache/`, {
         method: 'POST',
         body: JSON.stringify({
           version: SCRIPT_VERSION,
@@ -101,6 +109,7 @@ export async function saveCache(
         }),
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken') || '',
         },
       })
       .then(x => x.json())
@@ -119,13 +128,15 @@ export function deleteAPICache(sandboxId: string): Promise<any> {
   if (APICacheUsed) {
     debug('Deleting cache of API');
     return window
-      .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+      // .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+    .fetch(`${host}/api/v1/studio/material-problem-type/${sandboxId}/cache/`, {
         method: 'DELETE',
         body: JSON.stringify({
           version: SCRIPT_VERSION,
         }),
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken') || '',
         },
       })
       .then(x => x.json())

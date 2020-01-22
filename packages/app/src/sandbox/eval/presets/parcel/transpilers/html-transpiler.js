@@ -1,7 +1,7 @@
 // @flow
 // eslint-disable-next-line
 //import HTMLWorker from 'worker-loader?publicPath=/&name=parcel-html-transpiler.[hash:8].worker.js!./html-worker';
-import HTMLWorker from 'worker-loader?publicPath=/static/courses/eval/&name=parcel-html-transpiler.[hash:8].worker.js!./html-worker';
+import HTMLWorker from 'worker-loader?publicPath=/proxy/static/courses/js/codesandbox-apps/eval/&name=parcel-html-transpiler.[hash:8].worker.js!./html-worker';
 import type { LoaderContext } from '../../../transpiled-module';
 import WorkerTranspiler from '../../../transpilers/worker-transpiler';
 

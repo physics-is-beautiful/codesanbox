@@ -1,7 +1,7 @@
 /* eslint-disable import/default */
 // @ts-ignore
-// import BabelWorker from 'worker-loader?publicPath=/&name=babel-transpiler.[hash:8].worker.js!./worker/index';
-import BabelWorker from 'worker-loader?publicPath=/static/courses/eval/&name=babel-transpiler.[hash:8].worker.js!./worker/index';
+import BabelWorker from 'worker-loader?publicPath=/&name=babel-transpiler.[hash:8].worker.js!./worker/index';
+// import BabelWorker from 'worker-loader?publicPath=/proxy/static/courses/js/codesandbox-apps/eval/&name=babel-transpiler.[hash:8].worker.js!./worker/index';
 /* eslint-enable import/default */
 import { isBabel7 } from '@codesandbox/common/lib/utils/is-babel-7';
 

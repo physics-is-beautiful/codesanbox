@@ -93,7 +93,8 @@ export async function saveCache(
     );
 
     return window
-      .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+      // .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+    .fetch(`${host}/api/v1/studio/material-problem-type/${sandboxId}/cache/`, {
         method: 'POST',
         body: JSON.stringify({
           version: SCRIPT_VERSION,
@@ -119,7 +120,8 @@ export function deleteAPICache(sandboxId: string): Promise<any> {
   if (APICacheUsed) {
     debug('Deleting cache of API');
     return window
-      .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+      // .fetch(`${host}/api/v1/sandboxes/${sandboxId}/cache`, {
+      .fetch(`${host}/api/v1/studio/material-problem-type/${sandboxId}/cache/`, {
         method: 'DELETE',
         body: JSON.stringify({
           version: SCRIPT_VERSION,

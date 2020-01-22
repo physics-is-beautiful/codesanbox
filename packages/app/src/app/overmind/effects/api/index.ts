@@ -81,6 +81,8 @@ export default {
       ? `/sandboxes/fork/${id}`
       : `/sandboxes/${id}/fork`;
 
+    // console.log(body);
+
     const sandbox = await api.post<SandboxAPIResponse>(url, body || {});
 
     return transformSandbox(sandbox);

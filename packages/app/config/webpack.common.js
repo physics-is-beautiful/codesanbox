@@ -21,8 +21,13 @@ const __DEV__ = NODE_ENV === 'development'; // eslint-disable-line no-underscore
 const __PROD__ = NODE_ENV === 'production'; // eslint-disable-line no-underscore-dangle
 // const __TEST__ = NODE_ENV === 'test'; // eslint-disable-line no-underscore-dangle
 const babelConfig = __DEV__ && !SANDBOX_ONLY ? babelDev : babelProd;
-// const publicPath = SANDBOX_ONLY || __DEV__ ? '/' : getHost.default() + '/';
-const publicPath = '/static/courses/eval/';
+let publicPath = SANDBOX_ONLY || __DEV__ ? '/' : getHost.default() + '/';
+// dev/compile for PIB switch
+const PIB_PROD = !!process.env.PIB_PROD; // PIB used for prod mode
+const PIB_DEV = !!process.env.PIB_DEV; // PIB used for dev mode
+publicPath = PIB_PROD ? '/proxy/static/courses/js/codesandbox-apps/eval/' : publicPath;
+publicPath = PIB_DEV ? '/static/courses/js/codesandbox-apps/eval/' : publicPath;
+
 const isLint = 'LINT' in process.env;
 
 // common function to get style loaders
@@ -428,6 +433,8 @@ module.exports = {
             inject: true,
             chunks: ['sandbox-startup', 'vendors~sandbox', 'sandbox'],
             filename: 'frame.html',
+            pib_prod: PIB_PROD,
+            pib_dev: PIB_DEV,
             template: paths.sandboxHtml,
             minify: __PROD__ && {
               removeComments: true,

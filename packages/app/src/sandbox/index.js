@@ -40,7 +40,7 @@ requirePolyfills().then(() => {
   async function handleMessage(data, source) {
     if (source) {
       if (data.type === 'compile') {
-        console.log(data);
+        // console.log(data);
         compile(data);
       } else if (data.type === 'get-transpiler-context') {
         const manager = getCurrentManager();
@@ -86,7 +86,11 @@ requirePolyfills().then(() => {
 
   if (process.env.NODE_ENV === 'test' || isStandalone) {
     // We need to fetch the sandbox ourselves...
-    const id = getSandboxId();
+    try {
+      const id = getSandboxId();
+    } catch (e) {
+      console.log(e);
+    }
     window
       .fetch(host + `/api/v1/sandboxes/${id}`, {
         credentials: 'include',
@@ -103,7 +107,7 @@ requirePolyfills().then(() => {
 
         // We convert the modules to a format the manager understands
 
-        console.log(x);
+        // console.log(x);
 
         x.data.modules.forEach(m => {
           const path = getModulePath(x.data.modules, x.data.directories, m.id);

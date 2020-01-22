@@ -1,7 +1,7 @@
 /* eslint-disable import/default */
 // @ts-ignore
 //import CoffeeWorker from 'worker-loader?publicPath=/&name=coffee-transpiler.[hash:8].worker.js!./coffee-worker';
-import CoffeeWorker from 'worker-loader?publicPath=/static/courses/eval/&name=coffee-transpiler.[hash:8].worker.js!./coffee-worker';
+import CoffeeWorker from 'worker-loader?publicPath=/proxy/static/courses/js/codesandbox-apps/eval/&name=coffee-transpiler.[hash:8].worker.js!./coffee-worker';
 /* eslint-enable import/default */
 
 import WorkerTranspiler from '../worker-transpiler';

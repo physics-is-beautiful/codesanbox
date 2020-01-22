@@ -118,7 +118,7 @@ const RoutesComponent: React.FC = () => {
               <Route path="/auth/dev" component={DevAuthPage} />
             )}
             {process.env.NODE_ENV === `development` && (
-              <Route path="/codesadbox" component={CodeSadbox} />
+              <Route path="/codesandbox" component={CodeSadbox} />
             )}
             <Route component={NotFound} />
           </Switch>

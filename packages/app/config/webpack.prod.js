@@ -14,8 +14,8 @@ const VERSION = require('@codesandbox/common/lib/version').default;
 // const childProcess = require('child_process');
 const commonConfig = require('./webpack.common');
 
-// const publicPath = '/static/material/';
-const publicPath = '/';
+// const publicPath = '' // codesanbox ????
+const publicPath = commonConfig.output.publicPath;
 // const isMaster =
 //   childProcess
 //     .execSync(`git branch | grep \\* | cut -d ' ' -f2`)
