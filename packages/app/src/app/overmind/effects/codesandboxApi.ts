@@ -9,13 +9,12 @@ export default {
     }
 
     const disposer = listen(data => {
-      // console.log(data);
-      if (data.type=='compile'){
-        // && window.location.host=='127.0.0.1:3002'){
-        console.log('compile');
-        console.log(window.location);
-        console.trace()
-      }
+      // if (data.type=='compile'){
+      //   // && window.location.host=='127.0.0.1:3002'){
+      //   console.log('compile');
+      //   console.log(window.location);
+      //   console.trace()
+      // }
       action({ data: data || {} });
     });
     listeners.set(action, disposer);

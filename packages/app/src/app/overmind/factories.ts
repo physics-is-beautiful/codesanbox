@@ -78,6 +78,8 @@ export const withOwnedSandbox = <T>(
 ): AsyncAction<T> => async (context, payload) => {
   const { state, actions } = context;
 
+  // console.log(payload);
+
   if (!state.editor.currentSandbox.owned) {
     if (state.editor.isForkingSandbox) {
       return cancelAction(context, payload);

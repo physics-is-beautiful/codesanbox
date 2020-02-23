@@ -150,7 +150,7 @@ export const setCurrentSandbox: AsyncAction<Sandbox> = async (
 
   state.editor.sandboxes[sandbox.id] = sandbox;
   
-  // console.log(sandbox);
+  // console.log('setCurrentSandbox');
 
   // fs.readdir('/sandbox/', function(err, items) {
   //   console.log(items);

@@ -160,6 +160,9 @@ export const codeSaved: AsyncAction<{
   cbID: string;
 }> = withOwnedSandbox(
   async ({ actions }, { code, moduleShortid, cbID }) => {
+    // console.trace();
+    // console.log(code, moduleShortid, cbID);
+
     actions.editor.internal.saveCode({
       code,
       moduleShortid,
